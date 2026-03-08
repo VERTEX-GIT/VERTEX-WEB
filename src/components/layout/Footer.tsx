@@ -29,7 +29,7 @@ export default function Footer() {
                         </div>
                         <div className={styles.linkGroup}>
                             <span className={styles.groupTitle}>Contact</span>
-                            <a href="mailto:contact@aidengoldkr.dev">contact@aidengoldkr.dev</a>
+                            <a href="mailto:contact@vertex-dksh.org">contact@vertex-dksh.org</a>
                             <span>단국대학교소프트웨어고등학교</span>
                         </div>
                     </div>
