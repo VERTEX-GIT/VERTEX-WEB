@@ -1,0 +1,88 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(17, 17, 17, 0.75);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logoLink:hover {
+    opacity: 0.8;
+}
+
+.logoText {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: var(--fg);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    /* Increased from 1 for better vertical balance */
+    display: flex;
+    align-items: center;
+    padding-top: 6.5px;
+    /* Nudge down for font baseline alignment */
+}
+
+.nav {
+    display: flex;
+    gap: 40px;
+}
+
+.nav a {
+    color: var(--fg-mid);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #ff6000;
+    /* VERTEX Orange */
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 64px;
+    }
+
+    .container {
+        padding: 0 24px;
+    }
+
+    .nav {
+        display: none;
+        /* Mobile menu logic can be added later */
+    }
+}

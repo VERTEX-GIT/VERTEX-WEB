@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  overflow: hidden;
+  padding: 96px 12%;
+  /* Increased sides for left alignment */
+  /* Slightly deeper than --bg to create hero depth */
+  background: #111111;
+}
+
+/* ── Layer 1: Square grid ─────────────────────────────────────── */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.095) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.095) 1px, transparent 1px);
+  background-size: 56px 56px;
+  /* Mask: full grid in center, fades toward all edges */
+  mask-image: radial-gradient(ellipse at 50% 42%, black 20%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 42%, black 20%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Layer 2: Orange radial glow — upper-right ────────────────── */
+
+/* ── Layer 3: Noise / grain ───────────────────────────────────── */
+.noise {
+  position: absolute;
+  inset: 0;
+  /* SVG feTurbulence grain — tiles seamlessly */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.032;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bgLogo {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  /* Moved further inward from 2% */
+  transform: translateY(-50%);
+  width: 60vw;
+  /* Increased from 50vw */
+  height: 60vw;
+  max-width: 1000px;
+  /* Increased from 800px */
+  max-height: 1000px;
+  background-image: url('/asset/vertex_logo_glass.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.45;
+  /* Increased visibility */
+  filter: brightness(1);
+  /* Removed blur, slightly increased brightness */
+  pointer-events: none;
+  z-index: 1;
+  animation: float 12s ease-in-out infinite;
+  /* Smoother, slower animation */
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-52%) translateX(-10px);
+  }
+}
+
+/* ── Content ──────────────────────────────────────────────────── */
+.content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  /* Increased from 20px */
+  max-width: 1000px;
+  /* Increased from 780px */
+}
+
+.label {
+  font-size: 1.125rem;
+  /* Increased from 0.875rem */
+  font-weight: 500;
+  color: var(--fg-mid);
+  letter-spacing: 0.08em;
+  /* Slightly more letter spacing */
+  animation: fadeUp 0.7s ease both;
+}
+
+.headline {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  /* Increased from clamp(2.6rem, 7vw, 5rem) */
+  font-weight: 900;
+  line-height: 1.05;
+  /* Slightly tighter line height for large text */
+  letter-spacing: -0.03em;
+  color: var(--fg);
+  animation: fadeUp 0.7s ease both;
+}
+
+.highlight {
+  color: #ff6000;
+  /* VERTEX Orange */
+}
+
+.sub {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  /* Increased from clamp(1rem, 2.5vw, 1.2rem) */
+  color: var(--fg-mid);
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 800px;
+  animation: fadeUp 0.7s ease both;
+}
+
+.cta {
+  display: flex;
+  gap: 16px;
+  /* Increased gap */
+  margin-top: 16px;
+  /* Increased margin */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  animation: fadeUp 0.7s ease both;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 64px 24px;
+  }
+}

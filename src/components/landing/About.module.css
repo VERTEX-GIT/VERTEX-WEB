@@ -1,0 +1,287 @@
+.sectionLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.introHeader {
+  margin-bottom: 100px;
+  max-width: 1000px;
+}
+
+.introContent {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 32px;
+  word-break: keep-all;
+}
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-top: 40px;
+}
+
+.columnLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.columnTitle {
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin-bottom: 48px;
+}
+
+.columnDesc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--fg-mid);
+  margin-bottom: 32px;
+  word-break: keep-all;
+}
+
+.columnList {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnItem {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.columnItem:first-of-type {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.keyword {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  color: var(--accent);
+  min-width: 140px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+
+.description {
+  font-size: 1.05rem;
+  color: var(--fg-mid);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+/* ── Infographic (Circular) ──────────────────────────────────── */
+.infographicWrapper {
+  position: relative;
+  width: 100%;
+  height: 309px;
+  aspect-ratio: 1 / 1;
+  max-width: 580px;
+  margin: 20px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infographic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.centerCircle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  /* Slightly smaller to prevent overlap */
+  height: 100px;
+  background: var(--bg);
+  border: 1px solid rgba(255, 96, 0, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  z-index: 5;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.orbit {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.orbitItem {
+  position: absolute;
+  width: 160px;
+  /* Slightly wider for text */
+  text-align: center;
+  z-index: 10;
+}
+
+/* Positioning nodes to be totally clear of center circle */
+.step1 {
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 73px;
+  margin-bottom: 73px;
+}
+
+.step2 {
+  bottom: 0%;
+  right: -15%;
+  width: 180px;
+  padding: 16px 7px;
+  margin-left: 71px;
+  margin-right: 71px;
+}
+
+.step3 {
+  bottom: 0%;
+  left: -15%;
+  margin-left: 82px;
+  margin-right: 82px;
+}
+
+.node {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 96, 0, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.orbitItem:hover .node {
+  transform: scale(1.1);
+  background: rgba(255, 96, 0, 0.2);
+}
+
+.nodeIndex {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.nodeLabel {
+  font-size: 0.95rem;
+  font-weight: 900;
+  font-family: var(--font-display);
+}
+
+.nodeInfo p {
+  font-size: 0.95rem;
+  /* Increased from 0.85rem */
+  color: var(--fg-mid);
+  line-height: 1.5;
+  word-break: keep-all;
+  margin-top: 4px;
+}
+
+.connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  transform: scale(1.35);
+}
+
+@media (max-width: 1024px) {
+  .splitGrid {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .columnItem {
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px 0;
+  }
+
+  .keyword {
+    min-width: unset;
+  }
+
+  .infographicWrapper {
+    margin-top: 40px;
+    max-width: 360px;
+  }
+
+  .orbitItem {
+    width: 120px;
+  }
+
+  .step1 {
+    top: 0;
+  }
+
+  .step2 {
+    top: 60%;
+    right: -5%;
+  }
+
+  .step3 {
+    top: 60%;
+    left: -5%;
+  }
+
+  .node {
+    width: 58px;
+    height: 58px;
+  }
+
+  .nodeLabel {
+    font-size: 0.85rem;
+  }
+
+  .nodeInfo p {
+    font-size: 0.75rem;
+  }
+
+  .centerCircle {
+    width: 90px;
+    height: 90px;
+    font-size: 0.65rem;
+  }
+}

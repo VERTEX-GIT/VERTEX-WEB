@@ -1,0 +1,255 @@
+.sectionLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 48px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+  width: 100%;
+  max-width: 1300px;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius);
+  padding: 0;
+  /* Padding moved to inner containers */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.25s ease;
+}
+
+.cardOpen {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 96, 0, 0.3);
+}
+
+.cardMain {
+  padding: 64px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card:hover {
+  border-color: rgba(255, 96, 0, 0.4);
+}
+
+.index {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.cardName {
+  font-size: 2.22rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cardTagline {
+  font-size: 1.25rem;
+  color: var(--fg-mid);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.cardDesc {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin-top: 8px;
+  margin-bottom: 28px;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 1rem;
+  /* Increased from 0.9rem */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  cursor: pointer;
+  width: fit-content;
+  transition: opacity 0.2s ease;
+}
+
+.toggleBtn:hover {
+  opacity: 0.8;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown ────────────────────────────────────────────────── */
+.dropdown {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.dropdownVisible {
+  max-height: 1200px;
+  /* Increased to accommodate multiple images */
+  opacity: 1;
+}
+
+.leaderSection {
+  padding: 64px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.leaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.leaderHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 80px;
+  font-size: 28px;
+}
+
+.leaderHeader .personRole {
+  font-size: 16px;
+}
+
+.personName {
+  font-weight: 800;
+}
+
+.leaderTitle {
+  font-size: 1.2rem;
+  color: var(--fg-mid);
+  font-weight: 500;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--fg-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contactValue {
+  font-size: 1.2rem;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portfolioLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fg-mid);
+}
+
+.portfolioFrame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.portfolioFrame:hover {
+  transform: scale(1.02);
+  border-color: var(--accent);
+}
+
+.placeholderImg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-subtle);
+  font-size: 0.85rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(255, 96, 0, 0.1) 0%, transparent 100%);
+}
+
+@media (max-width: 968px) {
+  .leaderSection {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px 28px 60px;
+    /* Added bottom padding for mobile spacing */
+  }
+}
+
+@media (max-width: 768px) {
+  .cardMain {
+    padding: 32px 28px;
+  }
+}
