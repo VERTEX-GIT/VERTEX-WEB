@@ -4,7 +4,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: 'VERTEX | DKSH 디지털융합제품개발 동아리',
+  title: 'VERTEX',
   description: 'Think. Build. Launch. / 아이디어를 실제 제품으로 출시하는 단국대학교소프트웨어고등학교 디지털융합제품개발 동아리 VERTEX입니다.',
   keywords: ['DKSH', '단대소고', 'VERTEX', '개발동아리', '고등학교동아리'],
 
