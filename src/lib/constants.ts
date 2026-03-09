@@ -4,6 +4,8 @@ export const NAV_LINKS = [
   { label: 'APPLY', href: '#apply' },
 ]
 
+export const APPLICATION_DEADLINE = new Date('2026-03-10T23:59:59+09:00')
+
 export const DEPARTMENTS = [
   {
     id: 'game',

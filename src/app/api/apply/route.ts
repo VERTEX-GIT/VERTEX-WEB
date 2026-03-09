@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { z } from 'zod'
+import { APPLICATION_DEADLINE } from '@/lib/constants'
 
 // Validation Schema
 const applicationSchema = z.object({
@@ -23,6 +24,14 @@ const MAX_PER_WINDOW = 5 // Max 5 submissions per hour per IP
 
 export async function POST(req: Request) {
     try {
+        // 0. Check deadline
+        if (Date.now() > APPLICATION_DEADLINE.getTime()) {
+            return NextResponse.json(
+                { message: '지원 기간이 종료되었습니다.' },
+                { status: 403 }
+            )
+        }
+
         const body = await req.json()
 
         // 1. Validate input

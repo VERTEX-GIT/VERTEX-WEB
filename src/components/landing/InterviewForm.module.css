@@ -182,6 +182,32 @@
     color: white;
 }
 
+/* Deadline Message */
+.deadlineMsg {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.deadlineIcon {
+    font-size: 4rem;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 0 20px rgba(255, 96, 0, 0.3));
+}
+
+.deadlineTitle {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.deadlineDesc {
+    font-size: 1.1rem;
+    color: var(--fg-mid);
+    line-height: 1.7;
+    word-break: keep-all;
+}
+
 @media (max-width: 768px) {
     .formWrapper {
         padding: 32px 24px;
