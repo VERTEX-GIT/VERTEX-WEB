@@ -23,12 +23,24 @@ export default function InterviewForm() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        setErrorMessage('')
         setStatus('loading')
 
-        const formData = new FormData(e.currentTarget)
-        const data = Object.fromEntries(formData.entries())
-
         try {
+            const formData = new FormData(e.currentTarget)
+            const data = {
+                grade: String(formData.get('grade') ?? ''),
+                classNum: String(formData.get('classNum') ?? ''),
+                studentId: String(formData.get('studentId') ?? ''),
+                name: String(formData.get('name') ?? ''),
+                phone: String(formData.get('phone') ?? ''),
+                department: String(formData.get('department') ?? ''),
+                intro: String(formData.get('intro') ?? ''),
+                motivation: String(formData.get('motivation') ?? ''),
+                hp_field: String(formData.get('hp_field') ?? ''),
+                form_timestamp: String(formData.get('form_timestamp') ?? ''),
+            }
+
             const res = await fetch('/api/apply', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -42,7 +54,7 @@ export default function InterviewForm() {
 
             setStatus('success')
         } catch (err: any) {
-            setErrorMessage(err.message)
+            setErrorMessage(err?.message || '제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.')
             setStatus('error')
         }
     }
@@ -166,6 +178,9 @@ export default function InterviewForm() {
                             <button type="submit" className={styles.submitBtn} disabled={status === 'loading'}>
                                 {status === 'loading' ? '제출 중...' : '지원하기'}
                             </button>
+                            <p className={styles.submitHelp}>
+                                지원 관련 오류 발생시, aidengoldkr@gmail.com으로 서류를 전송해주세요.
+                            </p>
                         </form>
                     </ScrollReveal>
                 )}
