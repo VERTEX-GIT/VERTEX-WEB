@@ -104,7 +104,7 @@ export default function InterviewForm() {
                             </div>
                             <div className={styles.field}>
                                 <label htmlFor="phone">전화번호</label>
-                                <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" />
+                                <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required pattern="[0-9\-]+" />
                             </div>
                         </div>
 

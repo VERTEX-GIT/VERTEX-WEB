@@ -8,7 +8,7 @@ const applicationSchema = z.object({
     classNum: z.string().min(1),
     studentId: z.string().min(1),
     name: z.string().min(2, "이름은 2글자 이상이어야 합니다."),
-    phone: z.string().regex(/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/, "전화번호 형식이 올바르지 않습니다."),
+    phone: z.string().regex(/^[0-9\-]+$/, "전화번호는 숫자와 하이픈만 입력 가능합니다."),
     department: z.string().min(1),
     intro: z.string().min(10, "자기소개는 10자 이상 작성해 주세요."),
     motivation: z.string().min(10, "지원동기는 10자 이상 작성해 주세요."),
