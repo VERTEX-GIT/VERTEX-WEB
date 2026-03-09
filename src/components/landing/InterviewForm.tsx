@@ -179,7 +179,7 @@ export default function InterviewForm() {
                                 {status === 'loading' ? '제출 중...' : '지원하기'}
                             </button>
                             <p className={styles.submitHelp}>
-                                지원 관련 오류 발생시, aidengoldkr@gmail.com으로 서류를 전송해주세요.
+                                지원 관련 오류 발생시, contact@vertex-dksh.org 로 서류를 전송해주세요.
                             </p>
                         </form>
                     </ScrollReveal>
